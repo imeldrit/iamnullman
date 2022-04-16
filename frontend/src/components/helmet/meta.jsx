@@ -4,9 +4,9 @@ import { Helmet } from 'react-helmet-async'
 export default function MetaTags(props) {
     return (
         <Helmet>
-            <title>NullMan</title>
+            <title>iamnullman</title>
             <meta name="title" content="NullMan" />
-            <meta name="description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
+            <meta name="description" content="Hi, iamnullman. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
             <meta property="og:type" content="website" />
             <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
