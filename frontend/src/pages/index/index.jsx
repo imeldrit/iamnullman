@@ -14,6 +14,7 @@ import {links} from "../../config.jsx"
 import { FaDiscord, FaLinkedin, FaCodeBranch, FaStar } from 'react-icons/fa';
 import { useTranslation } from "react-i18next";
 import MetaTags from "../../components/helmet/meta"
+import baseAxios from "../../helpers/axios"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme();
 
@@ -22,10 +23,10 @@ export default function Album() {
   const {t} = useTranslation();
   React.useEffect(() => {
     let _repos = [];
-    fetch("https://api.github.com/users/iamnullman/repos")
+    baseAxios.get("https://api.github.com/users/iamnullman/repos")
       .then(response => response.json())
-      .then(data => _repos.push(...data));
-      fetch("https://api.github.com/users/vupychat/repos")
+      .then(data => _repos.push(data));
+      baseAxios.get("https://api.github.com/users/vupychat/repos")
       .then(response => response.json())
       .then(data => setRepos([ ..._repos, ...data]));
   }, []);
