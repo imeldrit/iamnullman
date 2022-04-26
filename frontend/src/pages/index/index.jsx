@@ -38,18 +38,6 @@ export default function Album() {
 ]
   return (
     <ThemeProvider theme={theme}>
-      <>
-      <title>NullMan</title>
-<meta name="title" content="NullMan" />
-<meta name="description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
-<meta name="Author" content="https://nullman.tech/" />
-<meta name="description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
-<meta property="og:title" content="NullMan" />
-<meta name="keywords" content="nullman, nullman.tech, vupy, vupy chat, nullman.com, enes, recep enes, enes recep, iamnullman" />
-<meta property="og:url" content="https://nullman.tech/" />
-<meta property="og:site_name" content="NullMan" />
-<meta property="og:description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
-      </>
       <CssBaseline />
       <main>
         {/* Ana Bölüm */}
