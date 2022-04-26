@@ -7,6 +7,7 @@ import Link from '@mui/material/Link';
 import TypeIt from "typeit-react";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useTranslation } from "react-i18next";
+import MetaTags from "../../components/helmet/meta"
 import { FaExternalLinkAlt, FaGithub, FaTwitter } from 'react-icons/fa';
 const Projects = [
     {
@@ -28,18 +29,7 @@ const Projects = [
              return (
             <ThemeProvider theme={theme}>
               <CssBaseline />
-      <>
-      <title>NullMan | Projects</title>
-<meta name="title" content="NullMan | Projects" />
-<meta name="description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
-<meta name="Author" content="https://nullman.tech/projects" />
-<meta name="description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
-<meta property="og:title" content="NullMan | Projects" />
-<meta name="keywords" content="projects, nullman, nullman.tech, vupy, vupy chat, nullman.com, enes, recep enes, enes recep, iamnullman" />
-<meta property="og:url" content="https://nullman.tech/projects" />
-<meta property="og:site_name" content="NullMan | Projects" />
-<meta property="og:description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
-      </>
+              <MetaTags url="https://nullman.tech/projects" name="Projects"/>
               <main>
                 {/* Ana Bölüm */}
                 <Box

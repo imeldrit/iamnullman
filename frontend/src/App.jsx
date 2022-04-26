@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Loading from "./components/loading/loading";
 import FourOhFourPage from "./components/404/404";
-import Meta from "./components/helmet/meta";
 import Navbar from "../src/components/navbar/navbar";
 import { initNewLanguage } from "./helpers/initNewLanguage";
 import Aos from "aos";
@@ -33,8 +32,7 @@ setTimeout(() => {
             <Router>
                 <HelmetProvider>
                     <Suspense fallback={<Loading />}>
-                        <Meta />
-                        <Navbar />
+                       <Navbar />
                         {loading ? <Loading /> : (
                         <Switch>
                             <Route

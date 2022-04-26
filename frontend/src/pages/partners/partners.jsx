@@ -7,6 +7,7 @@ import Link from '@mui/material/Link';
 import TypeIt from "typeit-react";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useTranslation } from "react-i18next";
+import MetaTags from "../../components/helmet/meta"
 const Partners = [
     {
         title:"Parter Title",
@@ -20,18 +21,7 @@ const Partners = [
           const {t} = useTranslation();
              return (
             <ThemeProvider theme={theme}>
-            <>
-            <title>NullMan | Partners</title>
-      <meta name="title" content="NullMan | Partners" />
-      <meta name="description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
-      <meta name="Author" content="https://nullman.tech/partners" />
-      <meta name="description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
-      <meta property="og:title" content="NullMan | Partners" />
-      <meta name="keywords" content="partners, ortaklıklar, nullman, nullman.tech, vupy, vupy chat, nullman.com, enes, recep enes, enes recep, iamnullman" />
-      <meta property="og:url" content="https://nullman.tech/partners" />
-      <meta property="og:site_name" content="NullMan | Partners" />
-      <meta property="og:description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
-            </>
+              <MetaTags url="https://nullman.tech/partners" name="Partners" />
               <CssBaseline />
               <main>
                 {/* Ana Bölüm */}

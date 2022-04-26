@@ -13,6 +13,7 @@ import TypeIt from "typeit-react";
 import {links} from "../../config.jsx"
 import { FaDiscord, FaLinkedin, FaCodeBranch, FaStar } from 'react-icons/fa';
 import { useTranslation } from "react-i18next";
+import MetaTags from "../../components/helmet/meta"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme();
 
@@ -38,7 +39,8 @@ export default function Album() {
 ]
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+       <MetaTags url="https://nullman.tech/" name="Home" />
+  <CssBaseline />
       <main>
         {/* Ana Bölüm */}
         <Box
