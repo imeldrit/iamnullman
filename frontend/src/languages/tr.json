@@ -1,0 +1,45 @@
+{
+    "pages":{
+        "index":{
+            "title":"NullMan",
+            "whoWeAre":{
+                "title":"Ben kimim?",
+                "description": "Merhaba, ben NullMan. Ben bir arka uç geliştiricisiyim. Lise 2. sınıf öğrencisiyim. En sevdiğim aktiviteler oyun oynamak, müzik dinlemek ve uyumak. Hayatım hakkında söyleyecek pek bir şey bulamıyorum. Okuduğunuz için teşekkürler."
+            },
+            "repos":{
+                "title":"Github Depolarım"
+            },
+            "main":{
+                "words":{
+                    "1":"Geliştirici",
+                    "2": "Çevirmen",
+                    "3":"Freelancer"
+                }
+            },
+            "footer":{
+                "description":"Nullman ve ❤ ile yapıldı"
+            }
+        },
+        "errors":{
+                "404":{
+                    "title":"Burada böyle bir sayfa bulamadık!",
+                    "description":"Şuan bulunduğunuz sayfa bulunamıyor. 10saniye sonra anaya yönlendirileceksiniz."
+            }
+        },
+        "partners":{
+            "description":"Bu web sitesini daha iyi hale getirmek için bazı ortaklarla çalışıyoruz. Onlar hakkında daha fazla bilgi edinmek isterseniz, aşağıya bakabilirsiniz.",
+            "words":{
+                "1":"Ortaklarımız",
+                "2":"Destekçiler"
+            }
+        },
+    "projects":{
+        "description":"Burada bazı projelerimi görebilirsiniz. Onlar hakkında daha fazla bilgi edinmek isterseniz, aşağıdan bir göz atabilirsiniz.",
+        "word":"Projelerim"
+    }
+},
+"navbar":{
+"partners":"Ortaklarımız",
+"projects":"Projelerim"
+}
+}

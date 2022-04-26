@@ -10,10 +10,11 @@ import { useTranslation } from "react-i18next";
 import { FaExternalLinkAlt, FaGithub, FaTwitter } from 'react-icons/fa';
 const Projects = [
     {
-        image:"https://api.preless.social/cdn/vupy_logo.png",
+        image:"https://1c7490c0055723b2affc-8f475f2fa394bc8453917e1fb7321b33.ssl.cf1.rackcdn.com/coming-soon-6692450_1590394338.jpg",
         title:"Vupy",
         description:"Vupy's purpose is to provide you with secure chat. It aims to provide comfortable use for you while presenting this chat",
         link:"https://vupy.xyz",
+        active:false,
         links:{
           twitter:"https://twitter.com/vupyapp",
           github:"https://github.com/vupychat"
@@ -27,6 +28,18 @@ const Projects = [
              return (
             <ThemeProvider theme={theme}>
               <CssBaseline />
+      <>
+      <title>NullMan | Projects</title>
+<meta name="title" content="NullMan | Projects" />
+<meta name="description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
+<meta name="Author" content="https://nullman.tech/projects" />
+<meta name="description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
+<meta property="og:title" content="NullMan | Projects" />
+<meta name="keywords" content="projects, nullman, nullman.tech, vupy, vupy chat, nullman.com, enes, recep enes, enes recep, iamnullman" />
+<meta property="og:url" content="https://nullman.tech/projects" />
+<meta property="og:site_name" content="NullMan | Projects" />
+<meta property="og:description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
+      </>
               <main>
                 {/* Ana Bölüm */}
                 <Box
@@ -80,9 +93,10 @@ const Projects = [
                                             <a rel="noreferrer" target="_blank" style={{"fontSize":"20px","color":"#718096"}}  href={data.links.twitter} className="mx-5">
                                                 <FaTwitter/>
                                             </a>
+                                            {data.active ? (
                                             <a rel="noreferrer" target="_blank" style={{"fontSize":"20px","color":"#718096"}} href={data.link}>
                <FaExternalLinkAlt/> 
-            </a>
+            </a>):null}
                                         </div>
                                     </div>
                                 </div>

@@ -1,0 +1,45 @@
+{
+    "pages":{
+        "index":{
+            "title":"NullMan",
+            "whoWeAre":{
+                "title":"Who ı am?",
+                "description": "Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping. I can't think of much to say about my life. Thank you for reading."
+            },
+            "repos":{
+                "title":"Github Repositories"
+            },
+            "main":{
+                "words":{
+                    "1":"Developer",
+                    "2": "Translator",
+                    "3":"Freelancer"
+                }
+            },
+            "footer":{
+                "description":"Made by NullMan and ❤"
+            }
+        },
+        "errors":{
+                "404":{
+                    "title":"We couldn't find such a page here!",
+                    "description":"The page you are looking for does not exist. You can go back to the homepage by clicking the button below."
+            }
+},
+    "partners":{
+        "description":"We are working with some partners to make this website better. If you want to know more about them, you can have a look below.",
+        "words":{
+            "1":"Partners",
+            "2":"Supporters"
+        }
+    },
+    "projects":{
+        "description":"Here you can see some of my projects. If you want to know more about them, you can have a look below.",
+        "word":"Projects"
+    }
+},
+"navbar":{
+"partners":"Partners",
+"projects":"Projects"
+}
+}

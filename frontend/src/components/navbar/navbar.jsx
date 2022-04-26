@@ -54,6 +54,15 @@ const lightTheme = makeStyles((theme) => ({
             localStorage.setItem("language", "tr");
         });
     };
+    const handleChangeLanguageDE = () => {
+        handleClose();
+        i18next.changeLanguage("de", (err) => {
+            if (err) {
+                return console.log(err);
+            };
+            localStorage.setItem("language", "de");
+        });
+    };
 
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
@@ -110,7 +119,8 @@ const lightTheme = makeStyles((theme) => ({
                             onClose={handleClose}
                         >
                             <MenuItem onClick={handleChangeLanguageTR} >Türkçe</MenuItem>
-                            <MenuItem onClick={handleChangeLanguageEN}>İngilizce</MenuItem>
+                            <MenuItem onClick={handleChangeLanguageDE} >Deutsch</MenuItem>
+                            <MenuItem onClick={handleChangeLanguageEN}>English</MenuItem>
                         </Menu>
                     </Box>
 

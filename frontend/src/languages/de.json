@@ -1,0 +1,45 @@
+{
+    "pages":{
+        "index":{
+            "title":"NullMan",
+            "whoWeAre":{
+                "title":"Wer bin ich?",
+                "description": "Hallo, ich bin NullMan. Ich bin Backend-Entwickler. Ich bin ein Gymnasiast im zweiten Jahr. Meine Lieblingsbeschäftigungen sind Spiele spielen, Musik hören und schlafen. Ich kann nicht viel über mein Leben sagen. Vielen Dank fürs Lesen."
+            },
+            "repos":{
+                "title":"GitHub Aufbewahrungsorte"
+            },
+            "main":{
+                "words":{
+                    "1":"Entwickler",
+                    "2": "Übersetzer",
+                    "3":"Freiberufler"
+                }
+            },
+            "footer":{
+                "description":"Hergestellt mit Nullman und ❤"
+            }
+        },
+        "errors":{
+                "404":{
+                    "title":"Wir konnten eine solche Seite hier nicht finden!",
+                    "description":"Die Seite, auf der Sie sich gerade befinden, kann nicht gefunden werden. Nach 10 Sekunden werden Sie zur Hauptseite weitergeleitet."
+            }
+        },
+        "partners":{
+            "description":"Wir arbeiten mit einigen Partnern zusammen, um diese Website zu verbessern. Wenn Sie mehr darüber erfahren möchten, können Sie unten einen Blick darauf werfen.",
+            "words":{
+                "1":"Unsere Partner",
+                "2":"Unterstützer"
+            }
+        },
+    "projects":{
+        "description":"Hier sehen Sie einige meiner Projekte. Wenn Sie mehr darüber erfahren möchten, können Sie unten einen Blick darauf werfen.",
+        "word":"meine Projekte"
+    }
+},
+"navbar":{
+"partners":"Unsere Partner",
+"projects":"meine Projekte"
+}
+}

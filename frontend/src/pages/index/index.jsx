@@ -11,34 +11,45 @@ import Twitter from '@mui/icons-material/Twitter';
 import Link from '@mui/material/Link';
 import TypeIt from "typeit-react";
 import {links} from "../../config.jsx"
-import { FaDiscord, FaLinkedin } from 'react-icons/fa';
+import { FaDiscord, FaLinkedin, FaCodeBranch, FaStar } from 'react-icons/fa';
 import { useTranslation } from "react-i18next";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme();
-const api = "https://api.preless.social/cdn/"
 
 export default function Album() {
+  const [repos, setRepos] = React.useState([]);
   const {t} = useTranslation();
+  React.useEffect(() => {
+    let _repos = [];
+    fetch("https://api.github.com/users/iamnullman/repos")
+      .then(response => response.json())
+      .then(data => _repos.push(...data));
+      fetch("https://api.github.com/users/vupychat/repos")
+      .then(response => response.json())
+      .then(data => setRepos([ ..._repos, ...data]));
+  }, []);
   const skills = [
-    {name:"NodeJS", src:api+"nodejs.svg"},
-    {name:"NextJS", src:api+"nextjs.svg"},
-    {name:"ReactJS", src:api+"react.svg"},
-    {name:"ExpressJS", src:api+"expressjs.svg"},
-    {name:"C#", src:api+"csharp.svg"},
-    {name:"Python", src:api+"python.svg"},
-    {name:"JavaScript", src:api+"javascript.svg"},
-    {name:"Arduino", src:api+"arduino.svg"},
-    {name:"HTML", src:api+"html.svg"},
-    {name:"CSS", src:api+"css.svg"},
-    {name:"Bootstrap", src:api+"bootstrap.svg"},
-    {name:"Tailwind CSS", src:api+"tailwindcss.svg"},
-    {name:"MongoDB", src:api+"mongo.svg"},
-    {name:"MySQL", src:api+"mysql.svg"},
-    {name:"Figma", src:api+"figma.svg"},
-    {name:"Github", src:api+"github.svg"}
+    {name:"NodeJS", width:"80"},
+    {name:"Python", width:"80"},
+    {name:"React", width:"50"},
+    {name:"HTML/CSS", width:"30"},
+    {name:"Dart", width:"25"},
+    {name:"Java", width:"25"}
 ]
   return (
     <ThemeProvider theme={theme}>
+      <>
+      <title>NullMan</title>
+<meta name="title" content="NullMan" />
+<meta name="description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
+<meta name="Author" content="https://nullman.tech/" />
+<meta name="description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
+<meta property="og:title" content="NullMan" />
+<meta name="keywords" content="nullman, nullman.tech, vupy, vupy chat, nullman.com, enes, recep enes, enes recep, iamnullman" />
+<meta property="og:url" content="https://nullman.tech/" />
+<meta property="og:site_name" content="NullMan" />
+<meta property="og:description" content="Hi, I'm NullMan. I am a backend developer. I am a 2nd year high school student. My favorite activities are playing games, listening to music and sleeping." />
+      </>
       <CssBaseline />
       <main>
         {/* Ana Bölüm */}
@@ -90,28 +101,59 @@ export default function Album() {
         <h3 className="font-semibold text-black text-xl" style={{"textAlign":"center"}}>
             Skills &amp; Technologies
           </h3>
-        <div class="flex flex-col min-h-screen justify-center items-center">
-<div class="flex flex-wrap justify-center">
+          <br/>
+        <div className="flex flex-col ustify-center items-center">
+<div className="flex flex-wrap justify-center" style={{"maxWidth":"600px"}}>
 {skills.map((skill) => (
-         
-      <div class="flex p-4 ml-5 md:p-10">
-       <div class="w-full flex items-center justify-center bg-transparent">
-          <div class="relative w-48 md:w-52 h-14 sm:h-14 md:h-16 bg-gradient-to-r from-purple-700 to-purple-900 rounded-md pt-4 pb-8 px-4 shadow-md hover:shadow-lg transition flex flex-col items-center">
-                    <div class="absolute rounded-full bg-transparent w-16 md:w-20 md:h-20 md:p-2 z-10 -top-2 md:-top-4 -left-12 md:-left-14 transition ">
-                          <div class="w-16 sm:w-18 md:w-20">
-                            <img alt="icon" style={{"minWidth":"75px", "minHeight":"75px", "maxWidth":"78px", "maxHeight":"78px"}} src={skill.src}/>
-                          </div>         
-                    </div>
-            <div class="flex flex-col space-y-2 md:space-y-4">
-            <label class="absolute font-bold text-gray-100 text-md text-start top-1 left-8 sm:left-10">
-            {skill.name}
-              </label>
-              </div>
-          </div>
-</div>
+  <>
+ <div className="flex justify-between">
+        <span className="text-base font-medium text-purple-700 dark:text-white">{skill.name}</span>
       </div>
+      <div class="w-full bg-gray-200 rounded-full">
+  <div class="bg-purple-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full" style={{"width":skill.width+"%"}}> {skill.width}%</div>
+</div>
+      <br/>
+      </>
 ))}
 </div>
+</div>
+                </Box>
+                <Box sx={{ bgcolor: 'background.paper', pt: 8, pb: 6 }}>
+                <Typography variant="h5" align="center" color="text.primary" gutterBottom>
+              {t("pages.index.repos.title")}
+            </Typography>
+                       <div class="w-full md:w-10/12 mx-auto grid grid-cols-12 max-w-5xl gap-4">
+                       {repos.map((data) => (
+                         <>
+                         {data.name.startsWith(".") ? null : (
+<a href={`https://github.com/${data.full_name}`} target="_blank" rel="noreferrer" class="w-72 bg-slate-900 border rounded-lg border-gray-700 p-5 shadow hover:bg-gray-700 delay-100 duration-200 grid col-span-4 relative">
+  <div class="flex flex-row">
+    <img src={data.owner.avatar_url} alt="img" className="rounded" style={{"maxWidth":"64px", "maxHeight":"64px"}} />
+    <p class="ml-3">
+      <span class="text-gray-500 font-semibold">{data.owner.login}/</span>
+      <span class="text-gray-300 font-semibold">{data.name}</span>
+     <br/>
+     <div class="flex flex-row">
+    <span class="text-white font-semibold flex">
+        <p><FaStar/></p>
+         <p>{data.stargazers_count}</p>
+    </span>
+    <span class="text-white font-semibold flex">
+        <p><FaCodeBranch/></p>
+       <p>{data.forks}</p>
+    </span>
+    </div>
+    </p>
+   
+  </div>
+  <p class="text-xs text-gray-500 mt-3">
+    {data.description}
+  </p>
+
+</a>
+                         )}
+                         </>
+                       ))}
 </div>
                 </Box>
       </main>
