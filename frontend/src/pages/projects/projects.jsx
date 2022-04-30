@@ -21,7 +21,7 @@ const Projects = [
         }
     }
 ]
-        export default function Partenrs() {
+        export default function PartnerPage() {
           const {t} = useTranslation();
              return (
             <>

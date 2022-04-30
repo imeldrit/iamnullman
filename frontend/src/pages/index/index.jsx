@@ -16,7 +16,7 @@ import { useTranslation } from "react-i18next";
 import MetaTags from "../../components/helmet/meta"
 import baseAxios from "../../helpers/axios"
 
-export default function Album() {
+export default function IndexPage() {
   const [repos, setRepos] = React.useState([]);
   const {t} = useTranslation();
     React.useEffect(() => {
@@ -25,7 +25,7 @@ export default function Album() {
       .then(data => _repos.push(...data.data));
       baseAxios.get("vupychat/repos")
       .then(data => setRepos([ ..._repos, ...data.data]));
-    }, [repos.length === 0]);
+    }, [repos.length < 1]);
   const skills = [
     {name:"NodeJS", width:"80"},
     {name:"Python", width:"80"},
