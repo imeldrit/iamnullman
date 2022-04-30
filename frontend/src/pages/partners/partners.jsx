@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import TypeIt from "typeit-react";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useTranslation } from "react-i18next";
 import MetaTags from "../../components/helmet/meta"
 const Partners = [
@@ -15,12 +14,10 @@ const Partners = [
         link:"https://nullman.tech"
     }
 ]
- 
-        const theme = createTheme();
-        export default function Album() {
+        export default function PartnersPage() {
           const {t} = useTranslation();
              return (
-            <ThemeProvider theme={theme}>
+               <>
               <MetaTags url="https://nullman.tech/partners" name="Partners" />
               <CssBaseline />
               <main>
@@ -55,7 +52,7 @@ const Partners = [
                 <Box>
                     <div className="w-full md:w-10/12 mx-auto grid grid-cols-12 max-w-5xl gap-4">
       {Partners.map((data, index) => (
-    <div class="grid col-span-4 relative">
+    <div class="grid col-span-4 relative" key={index+1}>
            <a class="group shadow-lg hover:shadow-2xl duration-200 delay-75 w-full bg-white rounded-sm py-6 pr-6 pl-9" href={data.link}>
            <span className="text-xs text-zinc-400/50 uppercase font-semibold italic">Partner #{index +1}</span>
            <p class="leading-none font-bold text-2xl text-black"> {data.title} </p>
@@ -90,6 +87,6 @@ const Partners = [
       {'.'}
     </Typography>
       </Box>
-            </ThemeProvider>
+            </>
           );
         }

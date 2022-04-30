@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import TypeIt from "typeit-react";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useTranslation } from "react-i18next";
 import MetaTags from "../../components/helmet/meta"
 import { FaExternalLinkAlt, FaGithub, FaTwitter } from 'react-icons/fa';
@@ -22,12 +21,10 @@ const Projects = [
         }
     }
 ]
- 
-        const theme = createTheme();
-        export default function Album() {
+        export default function Partenrs() {
           const {t} = useTranslation();
              return (
-            <ThemeProvider theme={theme}>
+            <>
               <CssBaseline />
               <MetaTags url="https://nullman.tech/projects" name="Projects"/>
               <main>
@@ -65,7 +62,7 @@ const Projects = [
                     <div className="container mx-auto">
                         <div role="list" aria-label="Projects" className="lg:flex md:flex sm:flex items-center xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around">
                             {Projects.map((data, index) => (
-                            <div role="listitem" className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
+                            <div  key={index + 1} role="listitem" className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
                                 <div className="rounded overflow-auto shadow-md bg-white">
                                     <div className="absolute -mt-20 w-full flex justify-center">
                                         <div className="h-32 w-32">
@@ -122,6 +119,6 @@ const Projects = [
       {'.'}
     </Typography>
       </Box>
-            </ThemeProvider>
+            </>
           );
         }

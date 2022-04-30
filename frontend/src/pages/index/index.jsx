@@ -15,21 +15,17 @@ import { FaDiscord, FaLinkedin, FaCodeBranch, FaStar } from 'react-icons/fa';
 import { useTranslation } from "react-i18next";
 import MetaTags from "../../components/helmet/meta"
 import baseAxios from "../../helpers/axios"
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-const theme = createTheme();
 
 export default function Album() {
   const [repos, setRepos] = React.useState([]);
   const {t} = useTranslation();
-  React.useEffect(() => {
-    let _repos = [];
-    baseAxios.get("https://api.github.com/users/iamnullman/repos")
-      .then(response => response.json())
-      .then(data => _repos.push(data));
-      baseAxios.get("https://api.github.com/users/vupychat/repos")
-      .then(response => response.json())
-      .then(data => setRepos([ ..._repos, ...data]));
-  }, []);
+    React.useEffect(() => {
+      let _repos = [];
+    baseAxios.get("iamnullman/repos")
+      .then(data => _repos.push(...data.data));
+      baseAxios.get("vupychat/repos")
+      .then(data => setRepos([ ..._repos, ...data.data]));
+    }, [repos.length === 0]);
   const skills = [
     {name:"NodeJS", width:"80"},
     {name:"Python", width:"80"},
@@ -39,7 +35,7 @@ export default function Album() {
     {name:"Java", width:"25"}
 ]
   return (
-    <ThemeProvider theme={theme}>
+    <>
        <MetaTags url="https://nullman.tech/" name="Home" />
   <CssBaseline />
       <main>
@@ -95,13 +91,13 @@ export default function Album() {
           <br/>
         <div className="flex flex-col ustify-center items-center">
 <div className="flex flex-wrap justify-center" style={{"maxWidth":"600px"}}>
-{skills.map((skill) => (
+{skills.map((skill, index) => (
   <>
- <div className="flex justify-between">
+ <div className="flex justify-between" key={index + 1}>
         <span className="text-base font-medium text-purple-700 dark:text-white">{skill.name}</span>
       </div>
-      <div class="w-full bg-gray-200 rounded-full">
-  <div class="bg-purple-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full" style={{"width":skill.width+"%"}}> {skill.width}%</div>
+      <div className="w-full bg-gray-200 rounded-full">
+  <div className="bg-purple-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full" style={{"width":skill.width+"%"}}> {skill.width}%</div>
 </div>
       <br/>
       </>
@@ -113,23 +109,23 @@ export default function Album() {
                 <Typography variant="h5" align="center" color="text.primary" gutterBottom>
               {t("pages.index.repos.title")}
             </Typography>
-                       <div class="w-full md:w-10/12 mx-auto grid grid-cols-12 max-w-5xl gap-4">
-                       {repos.map((data) => (
+                       <div className="w-full md:w-10/12 mx-auto grid grid-cols-12 max-w-5xl gap-4">
+                       {repos.map((data, index) => (
                          <>
-                         {data.name.startsWith(".") ? null : (
-<a href={`https://github.com/${data.full_name}`} target="_blank" rel="noreferrer" class="w-72 bg-slate-900 border rounded-lg border-gray-700 p-5 shadow hover:bg-gray-700 delay-100 duration-200 grid col-span-4 relative">
-  <div class="flex flex-row">
+                         {!data ? null : (
+<a  key={index + 1} href={`https://github.com/${data.full_name}`} target="_blank" rel="noreferrer" className="w-72 bg-slate-900 border rounded-lg border-gray-700 p-5 shadow hover:bg-gray-700 delay-100 duration-200 grid col-span-4 relative">
+  <div className="flex flex-row">
     <img src={data.owner.avatar_url} alt="img" className="rounded" style={{"maxWidth":"64px", "maxHeight":"64px"}} />
-    <p class="ml-3">
-      <span class="text-gray-500 font-semibold">{data.owner.login}/</span>
-      <span class="text-gray-300 font-semibold">{data.name}</span>
+    <p className="ml-3">
+      <span className="text-gray-500 font-semibold">{data.owner.login}/</span>
+      <span className="text-gray-300 font-semibold">{data.name}</span>
      <br/>
-     <div class="flex flex-row">
-    <span class="text-white font-semibold flex">
+     <div className="flex flex-row">
+    <span className="text-white font-semibold flex">
         <p><FaStar/></p>
          <p>{data.stargazers_count}</p>
     </span>
-    <span class="text-white font-semibold flex">
+    <span className="text-white font-semibold flex">
         <p><FaCodeBranch/></p>
        <p>{data.forks}</p>
     </span>
@@ -137,7 +133,7 @@ export default function Album() {
     </p>
    
   </div>
-  <p class="text-xs text-gray-500 mt-3">
+  <p className="text-xs text-gray-500 mt-3">
     {data.description}
   </p>
 
@@ -172,6 +168,6 @@ export default function Album() {
     </Typography>
       </Box>
 
-    </ThemeProvider>
+    </>
   );
 }
