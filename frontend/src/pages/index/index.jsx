@@ -16,17 +16,49 @@ import { useTranslation } from "react-i18next";
 import MetaTags from "../../components/helmet/meta"
 import baseAxios from "../../helpers/axios"
 
+
+const sendRequest = async (urls = [], method = "GET") => {
+    let array = [];
+    for (var i = 0; i < urls.length; i++) {
+        let data = await baseAxios({
+            method,
+            url: urls[i]
+        }).then((res) => res.data);
+        array.push(data);
+    };
+    return array;
+};
+
+
+
+
 export default function Album() {
     const [repos, setRepos] = React.useState([]);
     const { t } = useTranslation();
 
     React.useEffect(() => {
-        let _repos = [];
-        baseAxios.get("iamnullman/repos")
-            .then(data => _repos.push(data.data));
-        baseAxios.get("vupychat/repos")
-            .then(data => setRepos([..._repos, ...data.data]));
-    }, [repos]);
+        /*  let _repos = [];
+          baseAxios.get("iamnullman/repos")
+              .then(data => _repos.push(data.data));
+          baseAxios.get("vupychat/repos")
+              .then(data => setRepos([..._repos, ...data.data]));*/
+
+        sendRequest(["iamnullman/repos", "vupychat/repos"]).then((res) => {
+
+            let myArray = [];
+
+            let isDataHas = Array.isArray(res) && res.length;
+            if (isDataHas) {
+                res?.forEach((resp) => {
+                    myArray.push([...resp[0], ...resp[1]]);
+                });
+                setRepos(myArray);
+            };
+
+
+        });
+
+    }, []);
 
     const skills = [
         { name: "NodeJS", width: "80" },
