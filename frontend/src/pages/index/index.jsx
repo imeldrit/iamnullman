@@ -16,7 +16,7 @@ import { useTranslation } from "react-i18next";
 import MetaTags from "../../components/helmet/meta"
 import baseAxios from "../../helpers/axios"
 
-
+/*
 const sendRequest = async (urls = [], method = "GET") => {
     let array = [];
     for (var i = 0; i < urls.length; i++) {
@@ -28,7 +28,7 @@ const sendRequest = async (urls = [], method = "GET") => {
     };
     return array;
 };
-
+*/
 
 
 
@@ -44,7 +44,7 @@ React.useEffect(() => {
               .then(data => setRepos([..._repos, ...data.data]));
 */
     console.log("test")
-        sendRequest(["iamnullman/repos", "vupychat/repos"]).then((res) => {
+       /* sendRequest(["iamnullman/repos", "vupychat/repos"]).then((res) => {
 
             let myArray = [];
 
@@ -59,7 +59,7 @@ React.useEffect(() => {
 
 
         });
-
+*/
     }, []);
 
     const skills = [
