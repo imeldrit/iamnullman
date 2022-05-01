@@ -53,7 +53,7 @@ React.useEffect(() => {
                 res?.forEach((resp) => {
                     myArray.push([...resp[0], ...resp[1]]);
                 });
-                console.log(myArray
+                console.log(myArray);
                 setRepos(myArray);
             };
 
