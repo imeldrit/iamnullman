@@ -43,6 +43,7 @@ React.useEffect(() => {
           baseAxios.get("vupychat/repos")
               .then(data => setRepos([..._repos, ...data.data]));
 */
+    console.log("test")
         sendRequest(["iamnullman/repos", "vupychat/repos"]).then((res) => {
 
             let myArray = [];
@@ -52,6 +53,7 @@ React.useEffect(() => {
                 res?.forEach((resp) => {
                     myArray.push([...resp[0], ...resp[1]]);
                 });
+                console.log(myArray
                 setRepos(myArray);
             };
 
