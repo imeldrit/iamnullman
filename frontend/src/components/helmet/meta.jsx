@@ -1,7 +1,11 @@
 import { Helmet } from 'react-helmet-async'
 
 
-export default function MetaTags(props) {
+export default function MetaTags(data) {
+    const props = {
+        name:"iamnullman",
+        link:data.link || "https://nullman.tech"
+    }
     return (
         <Helmet>
 <title>{"NullMan | "+props.name}</title>
