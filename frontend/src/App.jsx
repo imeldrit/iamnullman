@@ -19,7 +19,7 @@ useEffect(() => {
 
   useEffect(() => {
     initNewLanguage(localStorage.getItem("language") || "en");
-  }, []);-
+  }, []);
 
         return (<>
             <Router>
