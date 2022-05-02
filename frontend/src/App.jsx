@@ -13,28 +13,20 @@ const PartnerPage = lazy(() => import("./pages/partners/partners"));
 const Projects = lazy(() => import("./pages/projects/projects"));
 
 export default function App() {
-const [loading, setLoading] = React.useState(true);
-
 useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
 
   useEffect(() => {
     initNewLanguage(localStorage.getItem("language") || "en");
-  }, []);
-setTimeout(() => {
-    setLoading(false);
-}, 2000);
-    useEffect(() => { }, []);
-
+  }, []);-
 
         return (<>
             <Router>
                 <HelmetProvider>
                     <Suspense fallback={<Loading />}>
                        <Navbar />
-                        {loading ? <Loading /> : (
-                        <Switch>
+                         <Switch>
                             <Route
                                 path='/'
                                 exact
@@ -52,7 +44,6 @@ setTimeout(() => {
                             />
                             <Route component={FourOhFourPage} />
                         </Switch>
-                        )}
                     </Suspense>
                 </HelmetProvider>
             </Router>
