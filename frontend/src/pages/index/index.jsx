@@ -13,23 +13,7 @@ import TypeIt from "typeit-react";
 import { links } from "../../config.jsx"
 import { FaDiscord, FaLinkedin, FaCodeBranch, FaStar } from 'react-icons/fa';
 import { useTranslation } from "react-i18next";
-import MetaTags from "../../components/helmet/meta"
 import baseAxios from "../../helpers/axios"
-
-/*
-const sendRequest = async (urls = [], method = "GET") => {
-    let array = [];
-    for (var i = 0; i < urls.length; i++) {
-        let data = await baseAxios({
-            method,
-            url: urls[i]
-        }).then((res) => res.data);
-        array.push(data);
-    };
-    return array;
-};
-*/
-
 
 
 export default function Album() {
@@ -37,29 +21,11 @@ export default function Album() {
     const { t } = useTranslation();
 
 React.useEffect(() => {
-        /*  let _repos = [];
+        let _repos = [];
           baseAxios.get("iamnullman/repos")
               .then(data => _repos.push(data.data));
           baseAxios.get("vupychat/repos")
               .then(data => setRepos([..._repos, ...data.data]));
-*/
-    console.log("test")
-       /* sendRequest(["iamnullman/repos", "vupychat/repos"]).then((res) => {
-
-            let myArray = [];
-
-            let isDataHas = Array.isArray(res) && res.length;
-            if (isDataHas) {
-                res?.forEach((resp) => {
-                    myArray.push([...resp[0], ...resp[1]]);
-                });
-                console.log(myArray);
-                setRepos(myArray);
-            };
-
-
-        });
-*/
     }, []);
 
     const skills = [
@@ -72,7 +38,6 @@ React.useEffect(() => {
     ]
     return (
         <>
-            <MetaTags url="https://nullman.tech/" name="Home" />
             <CssBaseline />
             <main>
                 {/* Ana Bölüm */}
