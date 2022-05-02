@@ -19,14 +19,14 @@ import baseAxios from "../../helpers/axios"
 export default function Album() {
     const [repos, setRepos] = React.useState([]);
     const { t } = useTranslation();
-
+/*
 React.useEffect(() => {
         let _repos = [];
           baseAxios.get("iamnullman/repos")
               .then(data => _repos.push(data.data));
           baseAxios.get("vupychat/repos")
               .then(data => setRepos([..._repos, ...data.data]));
-    }, []);
+    }, []);*/
 
     const skills = [
         { name: "NodeJS", width: "80" },
