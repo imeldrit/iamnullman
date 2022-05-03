@@ -9,7 +9,6 @@ import Instagram from '@mui/icons-material/Instagram';
 import GitHub from '@mui/icons-material/GitHub';
 import Twitter from '@mui/icons-material/Twitter';
 import Link from '@mui/material/Link';
-import TypeIt from "typeit-react";
 import { links } from "../../config.jsx"
 import { FaDiscord, FaLinkedin, FaCodeBranch, FaStar } from 'react-icons/fa';
 import { useTranslation } from "react-i18next";
@@ -19,14 +18,14 @@ import baseAxios from "../../helpers/axios"
 export default function Album() {
     const [repos, setRepos] = React.useState([]);
     const { t } = useTranslation();
-/*
+
 React.useEffect(() => {
         let _repos = [];
           baseAxios.get("iamnullman/repos")
-              .then(data => _repos.push(data.data));
+              .then(data => _repos.push(...data.data));
           baseAxios.get("vupychat/repos")
               .then(data => setRepos([..._repos, ...data.data]));
-    }, []);*/
+    }, []);
 
     const skills = [
         { name: "NodeJS", width: "80" },
@@ -57,20 +56,13 @@ React.useEffect(() => {
                         >
                             NullMan
                             <br />
-                            <TypeIt options={{
-                                speed: 100, strings: [t("pages.index.main.words.1"), t("pages.index.main.words.2"), t("pages.index.main.words.3")], breakLines: false,
-                                loop: true,
-                                loopDelay: 2000,
-                                afterStep: (instance) => {
-                                    instance.getElement().style.color = "red";
-                                }
-                            }} />
+                            <span style={{"color":"purple"}}>{t("pages.index.main.words.1")}</span>
                         </Typography>
                     </Container>
                 </Box>
 
                 {/* I'm */}
-                <Box sx={{ bgcolor: 'background.paper', pt: 8, pb: 6 }}>
+                <Box sx={{ bgcolor: 'background.paper', pt: 8, pb: 6 }} data-aos="fade-up" data-aos-anchor-placement="top-center">
                     <Container maxWidth="sm">
                         <Typography variant="h5" align="center" color="text.primary" gutterBottom>
                             {t("pages.index.whoWeAre.title")}
@@ -87,7 +79,7 @@ React.useEffect(() => {
                         </Stack>
                     </Container>
                 </Box>
-                <Box>
+                <Box data-aos="fade-up" data-aos-anchor-placement="top-center">
                     <h3 className="font-semibold text-black text-xl" style={{ "textAlign": "center" }}>
                         Skills &amp; Technologies
                     </h3>
@@ -109,18 +101,18 @@ React.useEffect(() => {
                     </div>
                 </Box>
                 <Box sx={{ bgcolor: 'background.paper', pt: 8, pb: 6 }}>
-                    <Typography variant="h5" align="center" color="text.primary" gutterBottom>
+                    <Typography variant="h5" align="center" color="text.primary" gutterBottom data-aos="fade-up" data-aos-anchor-placement="top-center">
                         {t("pages.index.repos.title")}
                     </Typography>
                     <div className="w-full md:w-10/12 mx-auto grid grid-cols-12 max-w-5xl gap-4">
                         {repos.map((data, index) => (
                             <>
                                 {!data ? null : (
-                                    <a key={index + 1} href={`https://github.com/${data.full_name}`} target="_blank" rel="noreferrer" className="w-72 bg-slate-900 border rounded-lg border-gray-700 p-5 shadow hover:bg-gray-700 delay-100 duration-200 grid col-span-4 relative">
+                                    <a data-aos="fade-up" data-aos-anchor-placement="top-center" key={index + 1} href={`https://github.com/${data.full_name}`} target="_blank" rel="noreferrer" className="w-72 bg-slate-900 border rounded-lg border-gray-700 p-5 shadow hover:bg-gray-700 delay-100 duration-200 grid col-span-4 relative">
                                         <div className="flex flex-row">
-                                            <img src={data.owner.avatar_url} alt="img" className="rounded" style={{ "maxWidth": "64px", "maxHeight": "64px" }} />
+                                            <img src={data.owner ? data.owner.avatar_url : "https://avatars.githubusercontent.com/u/73245847?v=4"} alt="img" className="rounded" style={{ "maxWidth": "64px", "maxHeight": "64px" }} />
                                             <p className="ml-3">
-                                                <span className="text-gray-500 font-semibold">{data.owner.login}/</span>
+                                                <span className="text-gray-500 font-semibold">{data.owner ? data.owner.login : "iamnullman"}/</span>
                                                 <span className="text-gray-300 font-semibold">{data.name}</span>
                                                 <br />
                                                 <div className="flex flex-row">
@@ -165,6 +157,14 @@ React.useEffect(() => {
                     {'Copyright © '}
                     <Link color="inherit" href="https://nullman.tech/">
                         nullman.tech
+                    </Link>{' '}
+                    {new Date().getFullYear()}
+                    {'.'}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" align="center">
+                    {'Copyright © '}
+                    <Link color="inherit" href="https://github.com/iamnullman/iamnullman">
+                        {t("pages.index.footer.opensource")}
                     </Link>{' '}
                     {new Date().getFullYear()}
                     {'.'}

@@ -7,9 +7,9 @@ import Navbar from "../src/components/navbar/navbar";
 import { initNewLanguage } from "./helpers/initNewLanguage";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import MetaTags from "./components/helmet/meta";
 
 const IndexPage = lazy(() => import("./pages/index/index"));
-const PartnerPage = lazy(() => import("./pages/partners/partners"));
 const Projects = lazy(() => import("./pages/projects/projects"));
 
 export default function App() {
@@ -24,6 +24,7 @@ useEffect(() => {
         return (<>
             <Router>
                 <HelmetProvider>
+                    <MetaTags />
                     <Suspense fallback={<Loading />}>
                        <Navbar />
                          <Switch>
@@ -31,11 +32,6 @@ useEffect(() => {
                                 path='/'
                                 exact
                                 component={IndexPage}
-                            />
-                            <Route
-                            path='/partners'
-                            exact
-                            component={PartnerPage}
                             />
                             <Route
                             path='/projects'

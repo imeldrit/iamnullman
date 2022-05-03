@@ -35,7 +35,7 @@ export default function FourOhFourPage({message}) {
     return (
         <>
             {redirect ? <Redirect to="/" /> : ""}
-            <div className={classes.Container}>
+            <div className={classes.Container} >
                 <img draggable={false} src={fourOhFourGif} className={classes.Image} alt="404gif" />
                 <Typography variant="h4">
                     {t("pages.errors.404.title")}

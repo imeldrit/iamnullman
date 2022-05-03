@@ -17,7 +17,8 @@
                 }
             },
             "footer":{
-                "description":"Hergestellt mit Nullman und ❤"
+                "description":"Hergestellt mit Nullman und ❤",
+                "opensource":"Diese Website ist als Open Source erstellt."
             }
         },
         "errors":{

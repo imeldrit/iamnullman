@@ -17,7 +17,8 @@
                 }
             },
             "footer":{
-                "description":"Made by NullMan and ❤"
+                "description":"Made by NullMan and ❤",
+                "opensource":"This website is made as open source."
             }
         },
         "errors":{

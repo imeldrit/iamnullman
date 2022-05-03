@@ -17,7 +17,8 @@
                 }
             },
             "footer":{
-                "description":"Nullman ve ❤ ile yapıldı"
+                "description":"Nullman ve ❤ ile yapıldı",
+                "opensource":"Bu internet sitesi açık kaynak olarak yapılmıştır."
             }
         },
         "errors":{
