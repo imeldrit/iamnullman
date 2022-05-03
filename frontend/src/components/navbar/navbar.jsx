@@ -32,8 +32,7 @@ const lightTheme = makeStyles((theme) => ({
 }))
 
     const classes = lightTheme();
-
-    const [anchorEl, setAnchorEl] = React.useState(null);
+     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleChangeLanguageEN = () => {
         handleClose();
@@ -83,9 +82,9 @@ const lightTheme = makeStyles((theme) => ({
                         </NavLink>
                     </Box>
                     <Box>
-                    <NavLink className={classes.navLink} to="/partners">
+                    <NavLink className={classes.navLink} to="/">
                             <Button>
-                                <Typography className={classes.button} variant="p" component="p">{t("navbar.partners")}</Typography>
+                                <Typography className={classes.button} variant="p" component="p">{t("navbar.home")}</Typography>
                             </Button>
                         </NavLink>
                     <NavLink className={classes.navLink} to="/projects">
